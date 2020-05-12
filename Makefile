@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-NAME		=	mysh
+NAME		=	asm
 
 SRC 		=	lib/my/fonction_printf/hexa.c \
 				lib/my/fonction_printf/my_conv_oct.c \
