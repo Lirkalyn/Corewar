@@ -8,15 +8,6 @@
 #include "my.h"
 #include "op.h"
 
-typedef struct		s_info
-{
-  char			*name;
-  char			*arg_1;
-  char			*arg_2;
-  char			*arg_3;
-  char			*label;
-} t_info;
-
 typedef struct header_yes
 {
    int copperfield;
@@ -29,8 +20,6 @@ typedef struct info_yes
 {
    int fd;
    int lenght;
-   t_info *lab;
-   t_info *cop_lab;
    char* name;
    char* info_write;
 } thewall_t;
@@ -41,9 +30,7 @@ int init_the_wall(thewall_t *thewall, char **av)
    int fd = open(av[1], O_RDONLY);
 
    thewall->info_write = malloc(sizeof(char) * 256);
-   thewall->lab = malloc(sizeof(t_info) * 256);
-   thewall->lab = malloc(sizeof(t_info) * 256);
-   thewall->name = malloc(sizeof(t_info) * 256);
+   thewall->name = malloc(sizeof(char) * 256);
    stat(av[1], &size);
    read(fd, thewall->info_write, size.st_size);
    thewall->info_write[size.st_size - 1] = '\0';
@@ -102,7 +89,7 @@ void in_search_of_the_name(char *command, char *name_to_put)
 
 }
 
-void put_the_name(char *name, int fd)
+void write_the_name(char *name, int fd)
 {
    int size = 129;
    int j = 0;
@@ -110,10 +97,10 @@ void put_the_name(char *name, int fd)
 
    size = size - my_strlen(name);
    write(fd, name, my_strlen(name));
-   /*while (j < size + 4){
+   while (j < size + 4){
       write(fd, "\0", 1);
       j++;
-   }*/
+   }
 }
 
 int main(int ac, char **av, char **en)
@@ -131,6 +118,11 @@ int main(int ac, char **av, char **en)
    thewall.fd = create_the_file(av[1]);
    in_search_of_the_name(thewall.info_write, thewall.name);
    write_the_copper(&thewall);
-   put_the_name(thewall.name, thewall.fd);;
+   write_the_name(thewall.name, thewall.fd);
+   /*---------------------------------------------*/
+   /*lseek(thefd, addr, SEEK_SET);
+   prog_size = convert_littleend_to_bigend_int(prog_size);
+   write(fd, &prog_size, sizeof(prog_size));*/
+   /*-----------------------------------------------------*/
    return 0;
 }
