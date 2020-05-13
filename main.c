@@ -39,23 +39,23 @@ int init_the_wall(thewall_t *thewall, char **av)
 int create_the_file(char *name)
 {
    char *new_name = malloc(sizeof(char) * my_strlen(name) + 5);
-   int i = 0;
+   int arr[2];
    char extend[4] = ".cor";
-   int j = 0;
    int fd;
    
-   for (i = 0; name[i] != '\0' && name[i] != '.'; i++)
-      new_name[i] = name[i];
-   for (j = 0; j <= 4; j++){
-      new_name[i] = extend[j];
-      i++;
+   arr[0] = 0;
+   arr[1] = 0;
+   for (arr[0] = 0; name[arr[0]] != '\0' && name[arr[0]] != '.'; arr[0]++)
+      new_name[arr[0]] = name[arr[0]];
+   for (arr[1] = 0; arr[1] <= 4; arr[1]++){
+      new_name[arr[0]] = extend[arr[1]];
+      arr[0]++;
    }
-   new_name[i - 1] = '\0';
+   new_name[arr[0] - 1] = '\0';
    if ((fd = open(new_name, O_WRONLY | O_CREAT | O_TRUNC,
    S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)) == -1)
       return (-1);
    return fd;
-   
 }
 
 int write_the_copper(thewall_t *thewall)
@@ -93,7 +93,6 @@ void write_the_name(char *name, int fd)
 {
    int size = 129;
    int j = 0;
-
 
    size = size - my_strlen(name);
    write(fd, name, my_strlen(name));
