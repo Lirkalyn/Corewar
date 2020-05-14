@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-NAME		=	asm
+NAME		=	asm/asm
 
 SRC 		=	lib/my/fonction_printf/hexa.c \
 				lib/my/fonction_printf/my_conv_oct.c \
@@ -20,6 +20,8 @@ SRC 		=	lib/my/fonction_printf/hexa.c \
 				lib/my/list_fonction/list_fonction.c \
 				lib/my/list_fonction/list_fonction2.c \
 				lib/my/disp_stdarg.c \
+				lib/my/corewar/assembleur/init_the_wall.c \
+				lib/my/corewar/assembleur/create_the_file.c \
 				lib/my/my_getnbr.c \
 				lib/my/my_revstr.c \
 				lib/my/my_strcpy.c \

@@ -60,6 +60,22 @@ typedef struct minishell
     int b;
 }ms_t;
 
+typedef struct header_yes
+{
+    int copperfield;
+    char name[256];
+    int size;
+    char comment[256];
+} head_t;
+
+typedef struct info_yes
+{
+    int fd;
+    int lenght;
+    char *name;
+    char *info_write;
+} thewall_t;
+
 int player_1(init_t *init);
 int player_2(init_t *init);
 int is_empty(list li);
@@ -96,3 +112,5 @@ void other_f_direction(char **en, char **word_cut, char **word_origin);
 void init_main(ms_t *begin);
 int le_minishell(ms_t *begin, int ac, char **av, char **en);
 void add_new_env_two(char **en, char **word_cut, char *thisEnv, int nbr_element);
+int init_the_wall(thewall_t *thewall, char **av);
+int create_the_file(char *name);
