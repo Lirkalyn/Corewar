@@ -74,6 +74,7 @@ typedef struct info_yes
     int lenght;
     char *name;
     char *info_write;
+    char *coment;
 } thewall_t;
 
 int player_1(init_t *init);
@@ -113,4 +114,4 @@ void init_main(ms_t *begin);
 int le_minishell(ms_t *begin, int ac, char **av, char **en);
 void add_new_env_two(char **en, char **word_cut, char *thisEnv, int nbr_element);
 int init_the_wall(thewall_t *thewall, char **av);
-int create_the_file(char *name);
+int create_the_file(char *name, thewall_t *thewall);

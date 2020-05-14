@@ -8,12 +8,14 @@
 #include "my.h"
 #include "op.h"
 
-int create_the_file(char *name)
+int create_the_file(char *name, thewall_t *thewall)
 {
-    char *new_name = malloc(sizeof(char) * my_strlen(name) + 5);
+    char *new_name = malloc(sizeof(char) * 100 + 5);
     int arr[2];
-    char extend[4] = ".cor";
-    int fd;
+    char extend[5] = ".cor";
+    int fd = 0;
+    int fd2 = 0;
+    struct stat size;
 
     arr[0] = 0;
     arr[1] = 0;
@@ -22,7 +24,7 @@ int create_the_file(char *name)
     for (arr[1] = 0; arr[1] <= 4; arr[1]++){
         new_name[arr[0]] = extend[arr[1]];
         arr[0]++;
-    }
+}
     new_name[arr[0] - 1] = '\0';
     if ((fd = open(new_name, O_WRONLY | O_CREAT | O_TRUNC,
     S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)) == -1)
