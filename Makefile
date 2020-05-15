@@ -36,19 +36,20 @@ SRC 		=	lib/my/fonction_printf/hexa.c \
 
 CC			?=	gcc
 
-CPPFLAGS	=	-I./include/ -Wextra -g3
+CPPFLAGS	=	-I./include/
 
-DEFLAGS		=	-Wextra -g3
+CFLAGS		=	-W -Wall -Wextra
 
 OBJ			=	$(SRC:.c=.o)
 
 all:	$(NAME)
 
+debug: CFLAGS += -g3
 debug:	$(OBJ)
-			$(CC) $(DEFLAGS) $(OBJ) -o $(NAME) $(CPPFLAGS)
+			$(CC) $(OBJ) -o $(NAME) $(CFLAGS) $(CPPFLAGS)
 
 $(NAME): $(OBJ)
-			$(CC) $(OBJ) -o $(NAME) $(CPPFLAGS)
+			$(CC) $(OBJ) -o $(NAME) $(CFLAGS)
 
 clean:
 			rm -f $(OBJ)
