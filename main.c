@@ -103,7 +103,7 @@ int main(int ac, char **av, char **en)
     write_the_name(thewall.name, thewall.fd);
    /*---------------------------------------------*/
    /*lseek(thefd, addr, SEEK_SET);
-   prog_size = convert_littleend_to_bigend_int(prog_size);
+   prog_size = convert_littleend_to_bigend_int(prog_size);   NE PAS TOUCHER !!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!
    write(fd, &prog_size, sizeof(prog_size));*/
    /*-----------------------------------------------------*/
     write_the_comment(&thewall);
