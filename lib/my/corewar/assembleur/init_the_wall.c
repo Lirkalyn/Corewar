@@ -17,6 +17,7 @@ int init_the_wall(thewall_t *thewall, char **av)
     thewall->info_write = malloc(sizeof(char) * size.st_size);
     thewall->name = malloc(sizeof(char) * 256);
     thewall->coment = malloc(sizeof(char) * 100);
+    thewall->info_cut = malloc(sizeof(char *) * size.st_size);
     read(fd, thewall->info_write, size.st_size);
     thewall->info_write[size.st_size - 1] = '\0';
 }

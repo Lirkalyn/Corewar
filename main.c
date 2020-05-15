@@ -69,6 +69,7 @@ void in_search_of_the_comment(thewall_t *thewall)
             kek++;
         }
     }
+    thewall->coment[kek - 1] = '\0'; 
 }
 
 int write_the_comment(thewall_t *thewall)
@@ -86,11 +87,43 @@ int write_the_comment(thewall_t *thewall)
     return 0;
 }
 
+void create_the_double_cut_tab(thewall_t *thewall)
+{
+    int len_1 = 0;
+    int len_2 = 0;
+    int len_3 = 0;
+    int space = 0;
+    int vir = 0;
+
+    thewall->info_cut[len_2] = malloc(sizeof(char) * my_strlen(thewall->info_write));
+    for(;thewall->info_write[len_1] != '\0'; len_1++){
+        if (vir > 3){
+            if (thewall->info_write[len_1] == ' ' && space == 0 || thewall->info_write[len_1] == '\t' && space == 0){
+                len_2++;
+                len_3 = 0;
+                thewall->info_cut[len_2] = malloc(sizeof(char) * my_strlen(thewall->info_write));
+                space = 1;
+            }
+            if (thewall->info_write[len_1] != ' ' && thewall->info_write[len_1] != '\t'){
+                if (thewall->info_write[len_1] == '\n' || thewall->info_write[len_1] == ',')
+                    thewall->info_cut[len_2][len_3] = '\0';
+                else
+                    thewall->info_cut[len_2][len_3] = thewall->info_write[len_1];
+                len_3++;
+                space = 0;
+            }
+        }
+        if(vir <= 4)
+            if (thewall->info_write[len_1] == '"')
+                vir++;
+    }
+    thewall->info_cut[len_2 + 1] = 0; 
+}
+
 int main(int ac, char **av, char **en)
 {
     head_t head;
     thewall_t thewall;
-    struct stat size;
 
     if (ac != 2){
         my_printf("Wrong argument\n");
@@ -101,12 +134,108 @@ int main(int ac, char **av, char **en)
     in_search_of_the_name(thewall.info_write, thewall.name);
     write_the_copper(&thewall);
     write_the_name(thewall.name, thewall.fd);
+    create_the_double_cut_tab(&thewall);
    /*---------------------------------------------*/
-   /*lseek(thefd, addr, SEEK_SET);
-   prog_size = convert_littleend_to_bigend_int(prog_size);   NE PAS TOUCHER !!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!
-   write(fd, &prog_size, sizeof(prog_size));*/
+    int prog_size = 1;
+    int addr = 136;
+
+    int temporaire = 0;
+    temporaire = (prog_size & 0xFF000000) >> 24;
+    temporaire |= ((prog_size & 0x00FF0000) >> 8);
+    temporaire |= (prog_size & 0x0000FF00) << 8;
+    temporaire |= ((prog_size & 0x000000FF) << 24);
+    write(thewall.fd, &temporaire, sizeof(temporaire));
    /*-----------------------------------------------------*/
     write_the_comment(&thewall);
-   /*--------------------------------------------------------*/
-   return 0;
+    analyse_fonction(thewall.info_cut, thewall.fd);
+
+    return 0;
 }
+
+
+/*
+
+
+
+/*
+** EPITECH PROJECT, 2019
+** Minishell.c
+** File description:
+** réussis
+
+
+#include "my.h"
+#include "op.h"
+
+typedef struct core_f
+{
+    char *name;
+    char **argument;
+} core_t;
+
+int	conv_conv(int var)
+{
+    int   tmp;
+
+    tmp = 0;
+    tmp = (var & 0xFF000000) >> 24;
+    tmp |= ((var & 0x00FF0000) >> 8);
+    tmp |= (var & 0x0000FF00) << 8;
+    tmp |= ((var & 0x000000FF) << 24);
+    return (tmp);
+}
+
+int	live_f(core_t *info_gater, int fd)
+{
+    char hexa;
+    int	arg;
+    char *arg_de_rechange = malloc(sizeof(char) * 256);
+    int i = 1;
+    int v = 0;
+
+    hexa = 0x01;
+    if (write(fd, &hexa, sizeof(hexa)) == -1)
+        return 1;
+    if(argument[0][0] == '%'){
+        for (i = 1; argument[0][i] != '\0'; i++)
+            arg_de_rechange[i - 1] = argument[0][i];
+    }
+
+    arg = atoi(&arg_de_rechange);
+    arg = conv_conv(arg);
+    if (write(fd, &arg, sizeof(arg)) == -1)
+        return (1);
+    return (0);
+
+}
+
+void crea_info_gater(core_t *info_gater, char **doub_tab)
+{   
+    int i = 0;
+
+    info_gater->name = malloc(sizeof(char) * 256);
+    info_gater->argument = malloc(sizeof(char *) * 3);
+    for(; doub_tab[i] != 0; i++)
+    {
+        if (same_char(doub_tab[i], "live")){
+            my_strcpy(info_gater->name, "live");
+            info_gater->argument[0] = malloc(sizeof(char) * 50);
+            my_strcpy(info_gater->argument[0], doub_tab[i + 1]);
+        }
+    }
+}
+
+void analyse_fonction(char **doub_tab, int fd)
+{   
+    core_t info_gater;
+
+    for (int i = 0; doub_tab[i] != 0; i++){
+        if (same_char("live", doub_tab[i]) == 1){
+            crea_info_gater(&info_gater, doub_tab);
+            live_f(&info_gater, fd);
+        }
+    }
+}
+
+
+*/

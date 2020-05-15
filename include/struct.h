@@ -74,6 +74,7 @@ typedef struct info_yes
     int lenght;
     char *name;
     char *info_write;
+    char **info_cut;
     char *coment;
 } thewall_t;
 
