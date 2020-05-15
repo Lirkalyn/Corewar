@@ -5,6 +5,8 @@
 ## Makefile
 ##
 
+.PHONY: all debug clean fclean re
+
 NAME		=	asm/asm
 
 SRC 		=	lib/my/fonction_printf/hexa.c \
@@ -34,7 +36,8 @@ SRC 		=	lib/my/fonction_printf/hexa.c \
 				lib/my/parcour.c \
 				lib/my/same_char.c \
 				lib/my/sum_stdarg.c \
-				main.c
+				main.c \
+				in_search_of_and_write.c
 
 CC			?=	gcc
 
@@ -60,5 +63,3 @@ fclean:	clean
 			rm -f $(NAME)
 
 re:		fclean all
-
-.PHONY: all debug clean fclean re

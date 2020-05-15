@@ -5,6 +5,9 @@
 ** the_hunter
 */
 
+#ifndef _MY_H_
+#define _MY_H_
+
 #include <sys/types.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -13,14 +16,18 @@
 #include <sys/stat.h>
 #include <pwd.h>
 #include <grp.h>
-#include <sys/types.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <unistd.h>
 #include <signal.h>
 #include <sys/dir.h>
 #include <struct.h>
 #include<sys/wait.h>
+
+typedef struct core_f
+{
+    char *name;
+    char **argument;
+} core_t; //* a déplacer
 
 int same_char(char *str1, char *str2);
 char my_transformnbr(int res);
@@ -54,3 +61,11 @@ int error_gestion(int ac, char **av);
 char **str_to_word(char *str);
 int count_space(char *str);
 char *update_word(char *thisEnv);
+//new
+int write_the_copper(thewall_t *thewall);
+void in_search_of_the_name(char *command, char *name_to_put);
+void write_the_name(char *name, int fd);
+void in_search_of_the_comment(thewall_t *thewall);
+int write_the_comment(thewall_t *thewall);
+
+#endif

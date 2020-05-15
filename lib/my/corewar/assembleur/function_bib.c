@@ -1,7 +1,16 @@
+/*
+** EPITECH PROJECT, 2020
+** corewar
+** File description:
+** need to be fill-desu
+*/
+
+#include "my.h"
+#include "op.h"
 
 int	conv_conv(int var)
 {
-    int   tmp;
+    int tmp;
 
     tmp = 0;
     tmp = (var & 0xFF000000) >> 24;
