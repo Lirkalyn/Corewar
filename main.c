@@ -71,6 +71,21 @@ void in_search_of_the_comment(thewall_t *thewall)
     }
 }
 
+int write_the_comment(thewall_t *thewall)
+{
+    int i = -1;
+    int taille;
+
+    in_search_of_the_comment(thewall);
+    write(thewall->fd, thewall->coment, my_strlen(thewall->coment));
+    taille = 2052 - my_strlen(thewall->coment);
+    while (i < taille){
+        write(thewall->fd, "\0", 1);
+        i++;
+    }
+    return 0;
+}
+
 int main(int ac, char **av, char **en)
 {
     head_t head;
@@ -91,8 +106,7 @@ int main(int ac, char **av, char **en)
    prog_size = convert_littleend_to_bigend_int(prog_size);
    write(fd, &prog_size, sizeof(prog_size));*/
    /*-----------------------------------------------------*/
-    in_search_of_the_comment(&thewall);
-    write(thewall.fd, &thewall.coment, my_strlen(thewall.coment));
+    write_the_comment(&thewall);
    /*--------------------------------------------------------*/
    return 0;
 }
