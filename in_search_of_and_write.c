@@ -76,9 +76,11 @@ int write_the_comment(thewall_t *thewall)
 {
     int i = -1;
     int taille;
+    int jej = 0;
 
     in_search_of_the_comment(thewall);
-    write(thewall->fd, thewall->coment, my_strlen(thewall->coment));
+    for (;thewall->coment[jej] != '\0'; jej++);
+    write(thewall->fd, thewall->coment, sizeof(char) * jej);
     taille = 2052 - my_strlen(thewall->coment);
     while (i < taille){
         write(thewall->fd, "\0", 1);

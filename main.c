@@ -59,16 +59,16 @@ int main(int ac, char **av, char **en)
     /*---------------------------------------------*/
     int prog_size = 1;
     int addr = 136;
-
     int temporaire = 0;
+
     temporaire = (prog_size & 0xFF000000) >> 24;
     temporaire |= ((prog_size & 0x00FF0000) >> 8);
     temporaire |= (prog_size & 0x0000FF00) << 8;
     temporaire |= ((prog_size & 0x000000FF) << 24);
-    write(thewall.fd, &temporaire, sizeof(temporaire));
+    write(thewall.fd, &temporaire, sizeof(temporaire) - 3);
     /*-----------------------------------------------------*/
     write_the_comment(&thewall);
-    analyse_fonction(thewall.info_cut, thewall.fd);
+    /*analyse_fonction(thewall.info_cut, thewall.fd);*/
 
     return 0;
 }
