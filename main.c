@@ -7,9 +7,9 @@
 
 #include "my.h"
 #include "op.h"
-
+// 29/20 lignes
 void create_the_double_cut_tab(thewall_t *thewall)
-{ // 29/20 lignes
+{
     int len_1 = 0;
     int len_2 = 0;
     int len_3 = 0;
@@ -69,6 +69,5 @@ int main(int ac, char **av, char **en)
     /*-----------------------------------------------------*/
     write_the_comment(&thewall);
     /*analyse_fonction(thewall.info_cut, thewall.fd);*/
-
     return 0;
 }

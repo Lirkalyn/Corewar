@@ -39,7 +39,6 @@ void analyse_fonction(char **doub_tab, int fd)
             crea_info_gater(&info_gater, doub_tab, i);
             ld_f(&info_gater, fd);
         }
-        
     }
 }
 

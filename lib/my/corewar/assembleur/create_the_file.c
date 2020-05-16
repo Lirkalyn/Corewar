@@ -20,8 +20,7 @@ int namelen_finder(char *str, int *pos) {
     if (str[j] == '/') {
         len = (i - j - 1);
         pos[0] = (j + 1);
-    }
-    else if (j == 0) { // permet de fonctionner même si on pas un "/" avant le nom
+    } else if (j == 0) { // permet de fonctionner même si on pas un "/" avant le nom
         len = (i - j);
         pos[0] = j;
     }

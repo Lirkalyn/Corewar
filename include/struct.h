@@ -126,6 +126,7 @@ int	live_f(core_t *info_gater, int fd);
 int	conv_conv(int var);
 int put_the_int_but_autistic(int fd, char *le_int);
 void put_the_int(int fd, char *le_int);
+char put_the_byte(core_t *info_gater, int fd);
 int put_the_int_but_autistic(int fd, char *le_int);
 int put_the_roar(int fd, char *le_int);
 int ld_f(core_t *info_gater, int fd);

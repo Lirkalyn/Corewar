@@ -41,13 +41,11 @@ int ld_f(core_t *info_gater, int fd)
     byte = put_the_byte(info_gater, fd);
 
     char check = ((byte & 0xC0) >> 6);
-    if (check == 0x02)
-    {
+    if (check == 0x02) {
     /*mettre gestion label*/
         put_the_int(fd, info_gater->argument[0]);
     }
-    if (check == 0x03)
-    {
+    if (check == 0x03) {
     /*mettre gestion label*/
         put_the_int_but_autistic(fd, info_gater->argument[0]);
     }
