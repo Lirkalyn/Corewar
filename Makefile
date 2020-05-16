@@ -25,6 +25,7 @@ SRC 		=	lib/my/fonction_printf/hexa.c \
 				lib/my/corewar/assembleur/init_the_wall.c \
 				lib/my/corewar/assembleur/create_the_file.c \
 				lib/my/corewar/assembleur/analyse_fonct.c \
+				lib/my/corewar/assembleur/function_bib.c \
 				lib/my/corewar/op.c \
 				lib/my/my_getnbr.c \
 				lib/my/my_revstr.c \

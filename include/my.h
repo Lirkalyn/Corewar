@@ -23,12 +23,6 @@
 #include <struct.h>
 #include<sys/wait.h>
 
-typedef struct core_f
-{
-    char *name;
-    char **argument;
-} core_t; //* a déplacer
-
 int same_char(char *str1, char *str2);
 char my_transformnbr(int res);
 int my_strlen(char *str);

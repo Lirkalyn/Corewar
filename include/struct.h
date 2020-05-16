@@ -78,6 +78,12 @@ typedef struct info_yes
     char *coment;
 } thewall_t;
 
+typedef struct core_f
+{
+    char *name;
+    char **argument;
+} core_t;
+
 int player_1(init_t *init);
 int player_2(init_t *init);
 int is_empty(list li);
@@ -116,3 +122,5 @@ int le_minishell(ms_t *begin, int ac, char **av, char **en);
 void add_new_env_two(char **en, char **word_cut, char *thisEnv, int nbr_element);
 int init_the_wall(thewall_t *thewall, char **av);
 int create_the_file(char *name, thewall_t *thewall);
+int	live_f(core_t *info_gater, int fd);
+int	conv_conv(int var);
