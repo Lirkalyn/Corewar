@@ -1,4 +1,4 @@
 	.name "Abel"
 	.comment "L'amer noir."
 
-	ld %0, r34
+	sub r2, r3, r4
