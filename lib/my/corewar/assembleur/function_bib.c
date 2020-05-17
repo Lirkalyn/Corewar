@@ -8,10 +8,10 @@
 #include "my.h"
 #include "op.h"
 
-int	live_f(core_t *info_gater, int fd)
+int live_f(core_t *info_gater, int fd)
 {
     char hexa;
-    int	arg;
+    int arg;
     char *arg_de_rechange = malloc(sizeof(char) * 256);
     int i = 1;
     int v = 0;
