@@ -61,5 +61,6 @@ void in_search_of_the_name(char *command, char *name_to_put);
 void write_the_name(char *name, int fd);
 void in_search_of_the_comment(thewall_t *thewall);
 int write_the_comment(thewall_t *thewall);
+int error(char *name);
 
 #endif

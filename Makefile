@@ -39,7 +39,13 @@ SRC 		=	lib/my/fonction_printf/hexa.c \
 				lib/my/same_char.c \
 				lib/my/sum_stdarg.c \
 				main.c \
-				in_search_of_and_write.c
+				in_search_of_and_write.c \
+				lib/my/corewar/assembleur/error/input.c \
+				lib/my/corewar/assembleur/error/start.c \
+				lib/my/corewar/assembleur/error/error_checker.c \
+				lib/my/corewar/assembleur/error/name_com_finder.c \
+				lib/my/corewar/assembleur/error/label.c \
+				lib/my/corewar/assembleur/error/label_2.c
 
 UTSRC	=	$(addprefix lib/my/,	\
 			fonction_printf/hexa.c	\

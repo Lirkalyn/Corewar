@@ -54,6 +54,8 @@ int main(int ac, char **av)
         my_printf("Wrong argument\n");
         return 84;
     }
+    if (error(av[1]) == 84)
+        return 84;
     init_the_wall(&thewall, av);
     thewall.fd = create_the_file(av[1], &thewall);
     in_search_of_the_name(thewall.info_write, thewall.name);
