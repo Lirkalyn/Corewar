@@ -53,13 +53,11 @@ int error_master(input_t *info)
     else if (com == 0 && info->next != NULL)
         info = info->next;
     while (info->next != NULL) {
-       // printf("%s", info->line);
         test = label_finder(info->line, &l_abel);
         l_abel = label_rewinder(l_abel);
         if (test == 84)
             return 84;
-        info = info->next;
-    }
+        info = info->next;}
     l_abel = label_rewinder(l_abel);
     return 0;
 }

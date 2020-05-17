@@ -63,10 +63,5 @@ label_t *label_maker(void)
     for (; i < 16; i++)
         l_abel = label_filler(l_abel, test[i]);
     l_abel = label_rewinder(l_abel);
-/*    for (; l_abel->next != NULL;) {
-        //printf("%ld\n", info->len);
-        printf("%s\n", l_abel->line);
-        l_abel = l_abel->next;
-    }*/
     return l_abel;
 }

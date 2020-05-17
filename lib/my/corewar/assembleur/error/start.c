@@ -18,13 +18,6 @@ int error(char *name)
     if (adres == NULL)
         return 84;
     info = input_taker(adres);
-//    for (; info->next != NULL;) {
-//        //printf("%ld\n", info->len);
-//        printf("%s", info->line);
-//        info = info->next;
-//    }
-//    printf("POST\n");
     info = input_rewinder(info);
     return error_master(info);
-    //return 0;
 }
