@@ -25,6 +25,7 @@ SRC 		=	lib/my/fonction_printf/hexa.c \
 				lib/my/corewar/assembleur/create_the_file.c \
 				lib/my/corewar/assembleur/analyse_fonct.c \
 				lib/my/corewar/assembleur/function_bib.c \
+				lib/my/corewar/assembleur/little_end_to_big.c \
 				lib/my/corewar/assembleur/arg_funct.c \
 				lib/my/corewar/op.c \
 				lib/my/my_getnbr.c \
@@ -58,6 +59,7 @@ UTSRC	=	$(addprefix lib/my/,	\
 			corewar/assembleur/create_the_file.c \
 			corewar/assembleur/analyse_fonct.c \
 			corewar/assembleur/function_bib.c \
+			corewar/assembleur/little_end_to_big.c \
 			corewar/assembleur/arg_funct.c \
 			corewar/op.c \
 			my_getnbr.c \

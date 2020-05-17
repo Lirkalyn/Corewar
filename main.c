@@ -7,44 +7,48 @@
 
 #include "my.h"
 #include "op.h"
-// 29/20 lignes
+
 void create_the_double_cut_tab(thewall_t *thewall)
 {
-    int len_1 = 0;
-    int len_2 = 0;
-    int len_3 = 0;
+    int len1 = 0;
+    int len2 = 0;
+    int len3 = 0;
     int space = 0;
     int vir = 0;
 
-    thewall->info_cut[len_2] = malloc(sizeof(char) * my_strlen(thewall->info_write)); //trop long
-    for (;thewall->info_write[len_1] != '\0'; len_1++){
-        if (vir > 3){
-            if (thewall->info_write[len_1] == ' ' && space == 0 || thewall->info_write[len_1] == '\t' && space == 0) { //trop long
-                len_2++;
-                len_3 = 0;
-                thewall->info_cut[len_2] = malloc(sizeof(char) * my_strlen(thewall->info_write)); //trop long
+    thewall->info_cut[len2] = malloc(sizeof(char) * \
+    my_strlen(thewall->info_write));
+    for (;thewall->info_write[len1] != '\0'; len1++) {
+        if (vir > 3) {
+            if (thewall->info_write[len1] == ' ' && space == 0 || \
+            thewall->info_write[len1] == '\t' && space == 0) {
+                len2++;
+                len3 = 0;
+                thewall->info_cut[len2] = malloc(sizeof(char) * \
+                my_strlen(thewall->info_write));
                 space = 1;
             }
-            if (thewall->info_write[len_1] != ' ' && thewall->info_write[len_1] != '\t') { //trop long
-                if (thewall->info_write[len_1] == '\n' || thewall->info_write[len_1] == ',') //trop long
-                    thewall->info_cut[len_2][len_3] = '\0';
+            if (thewall->info_write[len1] != ' ' && \
+            thewall->info_write[len1] != '\t') {
+                if (thewall->info_write[len1] == '\n' || \
+                thewall->info_write[len1] == ',')
+                    thewall->info_cut[len2][len3] = '\0';
                 else
-                    thewall->info_cut[len_2][len_3] = thewall->info_write[len_1]; //trop long
-                len_3++;
+                    thewall->info_cut[len2][len3] = thewall->info_write[len1];
+                len3++;
                 space = 0;
             }
-        }
-        if (vir <= 4)
-            if (thewall->info_write[len_1] == '"')
+        } else
+            if (thewall->info_write[len1] == '"')
                 vir++;
     }
-    thewall->info_cut[len_2 + 1] = 0;
+    thewall->info_cut[len2 + 1] = 0;
 }
 
-int main(int ac, char **av, char **en)
+int main(int ac, char **av)
 {
-    head_t head;
     thewall_t thewall;
+    int temporaire = 0;
 
     if (ac != 2){
         my_printf("Wrong argument\n");
@@ -56,18 +60,8 @@ int main(int ac, char **av, char **en)
     write_the_copper(&thewall);
     write_the_name(thewall.name, thewall.fd);
     create_the_double_cut_tab(&thewall);
-    /*---------------------------------------------*/
-    int prog_size = 1;
-    int addr = 136;
-    int temporaire = 0;
-
-    temporaire = (prog_size & 0xFF000000) >> 24;
-    temporaire |= ((prog_size & 0x00FF0000) >> 8);
-    temporaire |= (prog_size & 0x0000FF00) << 8;
-    temporaire |= ((prog_size & 0x000000FF) << 24);
+    temporaire = conv_conv(1);
     write(thewall.fd, &temporaire, sizeof(temporaire) - 3);
-    /*-----------------------------------------------------*/
     write_the_comment(&thewall);
-    /*analyse_fonction(thewall.info_cut, thewall.fd);*/
     return 0;
 }

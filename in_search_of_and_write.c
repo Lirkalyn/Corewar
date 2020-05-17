@@ -36,7 +36,6 @@ void in_search_of_the_name(char *command, char *name_to_put)
         j++;
     }
     name_to_put[j] = '\0';
-
 }
 
 void write_the_name(char *name, int fd)
@@ -64,7 +63,8 @@ void in_search_of_the_comment(thewall_t *thewall)
     jej--;
     if (thewall->info_write[jej] == '"') {
         jej++;
-        for (; thewall->info_write[jej] != '"' && thewall->info_write[jej] != '\0'; jej++) { //trop long
+        for (; thewall->info_write[jej] != '"' && \
+        thewall->info_write[jej] != '\0'; jej++) {
             thewall->coment[kek] = thewall->info_write[jej];
             kek++;
         }

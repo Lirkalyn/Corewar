@@ -41,5 +41,3 @@ void analyse_fonction(char **doub_tab, int fd)
         }
     }
 }
-
-/*voir lab pour comprendre les label*/

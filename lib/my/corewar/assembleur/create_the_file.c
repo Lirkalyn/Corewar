@@ -8,9 +8,6 @@
 #include "my.h"
 #include "op.h"
 
-// LIGNE 22  : else possible si on shouaite renvoyer une erreur car on a pas \
-trouver de ".". place disponible dans name_converter
-// LIGNE 27 :permet de fonctionner même si on\ pas un "/" avant le nom
 int namelen_finder(char *str, int *pos) {
     int i = 0;
     int j = 0;
@@ -55,8 +52,6 @@ int create_the_file(char *name, thewall_t *thewall)
 {
     char *new_name = name_converter(name, ".cor");
     int fd = 0;
-    int fd2 = 0;
-    struct stat size;
 
     if (new_name == NULL)
         return 84;
