@@ -25,11 +25,10 @@ int list_lenght(list list)
 
     if (is_empty(list) == 1)
         return size;
-    while (list != NULL){
+    while (list != NULL) {
         size++;
         list = list -> next;
     }
-
     return size;
 }
 
@@ -37,7 +36,7 @@ void print_list(list list)
 {
     if (is_empty(list) == 1)
         return;
-    while (list != NULL){
+    while (list != NULL) {
         my_printf("[%i]", list -> value);
         list = list -> next;
     }

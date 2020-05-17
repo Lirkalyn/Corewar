@@ -8,6 +8,9 @@
 #include "my.h"
 #include "op.h"
 
+// LIGNE 22  : else possible si on shouaite renvoyer une erreur car on a pas \
+trouver de ".". place disponible dans name_converter
+// LIGNE 27 :permet de fonctionner même si on\ pas un "/" avant le nom
 int namelen_finder(char *str, int *pos) {
     int i = 0;
     int j = 0;
@@ -16,11 +19,10 @@ int namelen_finder(char *str, int *pos) {
     for (; str[i] != '\0' && str[i] != '.'; i++);
     if (str[i] == '.')
         for (j = i; j > 0 && str[j] != '/'; j--);
-    // else possible si on shouaite renvoyer une erreur car on a pas trouver de ".". place disponible dans name_converter
     if (str[j] == '/') {
         len = (i - j - 1);
         pos[0] = (j + 1);
-    } else if (j == 0) { // permet de fonctionner même si on pas un "/" avant le nom
+    } else if (j == 0) {
         len = (i - j);
         pos[0] = j;
     }

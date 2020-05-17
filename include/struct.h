@@ -91,6 +91,7 @@ int list_lenght(list li);
 void print_list(list li);
 list del_front_list(list li);
 list del_back_list(list li);
+list clear_list(list li);
 list push_front_list(list li, int x);
 list push_back_list(list li, int x);
 list new_list(void);
@@ -119,7 +120,8 @@ int exit_f(char **en, char **word_cut, char *thisEnv);
 void other_f_direction(char **en, char **word_cut, char **word_origin);
 void init_main(ms_t *begin);
 int le_minishell(ms_t *begin, int ac, char **av, char **en);
-void add_new_env_two(char **en, char **word_cut, char *thisEnv, int nbr_element);
+void add_new_env_two(char **en, char **word_cut, char *thisEnv, \
+int nbr_element);
 int init_the_wall(thewall_t *thewall, char **av);
 int create_the_file(char *name, thewall_t *thewall);
 int	live_f(core_t *info_gater, int fd);

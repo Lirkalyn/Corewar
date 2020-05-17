@@ -48,7 +48,7 @@ int	live_f(core_t *info_gater, int fd)
     hexa = 0x01;
     if (write(fd, &hexa, sizeof(hexa)) == -1)
         return 1;
-    if(argument[0][0] == '%'){
+    if (argument[0][0] == '%') {
         for (i = 1; argument[0][i] != '\0'; i++)
             arg_de_rechange[i - 1] = argument[0][i];
     }
@@ -62,12 +62,12 @@ int	live_f(core_t *info_gater, int fd)
 }
 
 void crea_info_gater(core_t *info_gater, char **doub_tab)
-{   
+{
     int i = 0;
 
     info_gater->name = malloc(sizeof(char) * 256);
     info_gater->argument = malloc(sizeof(char *) * 3);
-    for(; doub_tab[i] != 0; i++)
+    for (; doub_tab[i] != 0; i++)
     {
         if (same_char(doub_tab[i], "live")){
             my_strcpy(info_gater->name, "live");
@@ -78,7 +78,7 @@ void crea_info_gater(core_t *info_gater, char **doub_tab)
 }
 
 void analyse_fonction(char **doub_tab, int fd)
-{   
+{
     core_t info_gater;
 
     for (int i = 0; doub_tab[i] != 0; i++){
@@ -88,6 +88,5 @@ void analyse_fonction(char **doub_tab, int fd)
         }
     }
 }
-
 
 */

@@ -74,6 +74,7 @@ UTSRC	=	$(addprefix lib/my/,	\
 			$(addprefix tests/,	\
 			test_lib.c			\
 			test_printf.c		\
+			test_lists.c		\
 			test_arg_func.c		\
 			)
 

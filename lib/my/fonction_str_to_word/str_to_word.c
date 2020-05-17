@@ -19,8 +19,8 @@ int count_space(char *str)
     int e = 1;
 
     for (i = 0; str[i] == ' ' || str[i] == '\t'; i++);
-    for (;str[i] != '\0'; i++){
-        if (str[i] == ' ' || str[i] == '\t' && e == 1){
+    for (;str[i] != '\0'; i++) {
+        if (str[i] == ' ' || str[i] == '\t' && e == 1) {
             res++;
             e = 0;
         }
@@ -39,14 +39,14 @@ void decompo(char **res, char *str)
 
     res[j] = malloc(sizeof(char) * 320);
     for (i = 0; str[i] == ' ' || str[i] == '\0' || str[i] == '\t'; i++);
-    for (;str[i] != '\0'; i++){
-        if (str[i] == ' ' || str[i] == '\t' && e == 1){
+    for (;str[i] != '\0'; i++) {
+        if (str[i] == ' ' || str[i] == '\t' && e == 1) {
             j++;
             e = 0;
             y = 0;
             res[j] = malloc(sizeof(char) * 320);
         }
-        if (str[i] != ' ' && str[i] != '\t'){
+        if (str[i] != ' ' && str[i] != '\t') {
             e = 1;
             res[j][y] = str[i];
             y++;

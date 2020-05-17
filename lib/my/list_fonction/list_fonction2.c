@@ -11,6 +11,7 @@ list push_back_list(list li, int x)
 {
     list copy;
     list trash;
+
     copy = malloc(sizeof(*copy));
     copy -> value = x;
     copy -> next = NULL;

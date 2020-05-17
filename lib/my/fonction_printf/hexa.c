@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-void hexa(char *res, int v, int  x)
+void hexa(char *res, int v, int x)
 {
     int j;
     char res_let = 'a';
@@ -18,7 +18,7 @@ void hexa(char *res, int v, int  x)
     if (v <= 9)
         res[x] = my_transformnbr(v);
     else if (v > 9)
-        for (j = 0; j <= 15; j++){
+        for (j = 0; j <= 15; j++) {
             if (j == v){
                 res[x] = res_let;
                 break;
@@ -34,8 +34,8 @@ void hexa_maj(char *res, int v, int  x)
 
     if (v <= 9)
         res[x] = my_transformnbr(v);
-    else if (v > 9){
-        for (j = 0; j <= 15; j++){
+    else if (v > 9) {
+        for (j = 0; j <= 15; j++) {
             if (j == v){
                 res[x] = res_let;
                 break;

@@ -86,7 +86,7 @@ int put_the_int_but_autistic(int fd, char *le_int)
     } else {
         le_true_int = my_getnbr(le_int);
         if (le_true_int > IDX_MOD)
-            return -1;   
+            return -1;
     }
     le_true_int = conv_conv(le_true_int);
     write(fd, &le_true_int, sizeof(le_true_int));
